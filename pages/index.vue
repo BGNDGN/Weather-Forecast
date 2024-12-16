@@ -1,11 +1,10 @@
 <template>
   <div id="baslangic">
-    <div id="input"> 
+    <div id="input">
       <h2 id="baslik">Weather Application</h2>
       <input id="value" type="text" placeholder="Bir şehir ismi girin." v-model="city">
       <button id="button" @click="appendValue">Search</button>
     </div>
-
     <div id="Main" v-if="weather">
       <p class="a">{{ weather.name }} - {{ weather.country }}</p>
       <div id="m1">
@@ -18,21 +17,20 @@
         <img class="image" :src="require(`@/assets/${hava.image}`)" :alt="hava.name"/>
       </div>
     </div>
-
     <div id="forecast" v-if="forecast.length">
       <h3>4 Günlük Tahmin</h3>
       <div id="abc">
-      <div class="inanılmaz">Gün </div>
-      <div class="inanılmaz2">Sıcaklık</div>
-      <div class="inanılmaz3">Açıklama</div>
-      <div class="inanılmaz4">Durum</div>
+        <div class="inanılmaz">Gün</div>
+        <div class="inanılmaz2">Sıcaklık</div>
+        <div class="inanılmaz3">Açıklama</div>
+        <div class="inanılmaz4">Durum</div>
       </div>
       <div v-for="day in forecast" :key="day.date" class="forecast-item">
         <div class="b1"><p>{{ day.date }}</p></div>
         <div class="b2"><p>{{ day.temperature }}°C</p></div>
         <div class="b3"><p>{{ day.description }}</p></div>
         <div class="b4"><img :src="day.icon" :alt="day.description" /></div>
-      </div> 
+      </div>
     </div>
   </div>
 </template>
